@@ -27,9 +27,11 @@ namespace smsproject.Controllers
         public ActionResult Index()
         {
             var users = _context.Users.ToList();
-
-            
-            return View(users);
+            var vm = new UsersVM
+            {
+                UserList = users
+            };
+            return View(vm);
         }
 
         public ActionResult New()
