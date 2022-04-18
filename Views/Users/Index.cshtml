@@ -1,0 +1,73 @@
+﻿
+@model IEnumerable<smsproject.Models.UsersModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <table class="table table-hover table-striped">
+            <thead>
+            <th>
+                Name
+            </th>
+            <th>
+                Date Added
+            </th>
+            <th>
+                Address
+            </th>
+            @using smsproject.Models
+            <th>
+                Age
+            </th>
+            <th>
+                EmailAddress
+            </th>
+            <th>
+                Edit
+            </th>
+            <th>
+                Delete
+            </th>
+
+            </thead>
+            <tbody>
+                @foreach (var customerModel in Model)
+                {
+                    <tr>
+                        <td>
+                            @customerModel.Name
+                        </td>
+                        <td>
+                            @if (customerModel.DateAdded.HasValue)
+                            {
+                                <span>@customerModel.DateAdded.Value.ToLongDateString()</span>
+                            }
+                        </td>
+                        <td>
+                            @customerModel.Address
+
+                        </td>
+                        <td>
+                            @customerModel.age
+
+                        </td>
+                        <td>
+                            @customerModel.EmailAddress
+
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-danger">Edit</button>
+                        </td>
+                        <td>
+                            <button type="submit" class="btn btn-success">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>

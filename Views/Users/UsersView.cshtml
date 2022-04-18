@@ -1,0 +1,32 @@
+﻿@model smsproject.Models.UsersModel
+@{
+	ViewBag.Title = "Customers";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customer Form</h2>
+@using (Html.BeginForm("Save", "Users"))
+{
+	<div class="form-group">
+		@Html.LabelFor(d => d.UserModel.Name)
+		@Html.TextBoxFor(d => d.UserModel.Name, new { @class = "form-control" })
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(d => d.UserModel.Address)
+		@Html.TextBoxFor(d => d.UserModel.Address, new { @class = "form-control" })
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(d => d.UserModel.age)
+		@Html.TextBoxFor(d => d.UserModel.age, new { @class = "form-control" })
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(d => d.UserModel.EmailAddress)
+		@Html.TextBoxFor(d => d.UserModel.EmailAddress, new { @class = "form-control" })
+	</div>
+
+	@Html.HiddenFor(d => d.UserModel.Id)
+	<button type="submit" class="btn btn-primary">Save</button>
+	
+}
