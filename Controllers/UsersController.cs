@@ -9,12 +9,7 @@ namespace smsproject.Controllers
 {
     public class UsersController : Controller
     {
-        // GET: Users
-        public ActionResult Index()
-        {
-            var userModel = _context.UsersM.ToList();
-            return View(userModel);
-        }
+        
         private ApplicationDbContext _context;
 
         public UsersController()
@@ -26,16 +21,22 @@ namespace smsproject.Controllers
         {
             _context.Dispose();
         }
-
+        
+        // GET: Users
+        public ActionResult Index()
+        {
+            var userModel = _context.UsersModel.ToList();
+            return View(userModel);
+        }
 
         public ActionResult New()
         {
-            var userList = _context.UsersM.ToList();
-            var awit = new UsersModel()
+            var userList = _context.UsersModel.ToList();
+            var viewModel = new RandomMovieViewModel()
             {
                 UserList = userList
             };
-            return View("UsersView", awit);
+            return View("UsersView", viewModel);
         }
 
         public ActionResult Save(UsersModel customerModel)
@@ -43,7 +44,7 @@ namespace smsproject.Controllers
             if (customerModel.Id == 0)
             {
                 customerModel.DateAdded = DateTime.Now;
-                _context.UsersM.Add(customerModel);
+                _context.UsersModel.Add(customerModel);
             }
 
             _context.SaveChanges();
