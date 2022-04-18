@@ -12,8 +12,6 @@ namespace smsproject.Models
         public string Address { get; set; }
         public DateTime? DateAdded { get; set; }
         public int age { get; set; }
-        public string EmailAddress { get; set; }
-        public IEnumerable<UsersModel> UserList { get; set; }
-        public UsersModel UserModel { get; set; }
+        public string EmailAddress { get; set; }  
     }
 }
