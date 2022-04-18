@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using smsproject.Models;
+using smsproject.ViewModel;
 
 namespace smsproject.Controllers
 {
@@ -25,26 +26,29 @@ namespace smsproject.Controllers
         // GET: Users
         public ActionResult Index()
         {
-            var userModel = _context.UsersModel.ToList();
-            return View(userModel);
+            var users = _context.Users.ToList();
+
+            
+            return View(users);
         }
 
         public ActionResult New()
         {
-            var userList = _context.UsersModel.ToList();
-            var viewModel = new RandomMovieViewModel()
+            var users = _context.Users.ToList();
+            var vm = new UsersVM()
             {
-                UserList = userList
+                UserList = users
             };
-            return View("UsersView", viewModel);
+            return View("Create", vm);
         }
 
-        public ActionResult Save(UsersModel customerModel)
+        public ActionResult Save(Users users)
         {
-            if (customerModel.Id == 0)
+            if (users.Id == 0)
             {
-                customerModel.DateAdded = DateTime.Now;
-                _context.UsersModel.Add(customerModel);
+                users.DateAdded = DateTime.Now;
+                _context.Users.Add(users);
+                
             }
 
             _context.SaveChanges();

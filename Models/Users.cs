@@ -5,7 +5,7 @@ using System.Web;
 
 namespace smsproject.Models
 {
-    public class UsersModel
+    public class Users
     {
         public int Id { get; set; }
         public string Name { get; set; }

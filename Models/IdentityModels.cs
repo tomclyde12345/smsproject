@@ -21,7 +21,7 @@ namespace smsproject.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<UsersModel> UsersM { get; set; }
+        public DbSet<Users> Users { get; set; }
       
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

@@ -6,9 +6,9 @@ using smsproject.Models;
 
 namespace smsproject.ViewModel
 {
-    public class RandomMovieViewModel
+    public class UsersVM
     {
-        public IEnumerable<UsersModel> UserList { get; set; } 
-        public UsersModel UsersModel { get; set]
+        public IEnumerable<Users> UserList { get; set; }
+        public Users Users { get; set; }
     }
 }
