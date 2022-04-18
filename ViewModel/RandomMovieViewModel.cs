@@ -8,7 +8,7 @@ namespace smsproject.ViewModel
 {
     public class RandomMovieViewModel
     {
-        public UsersModel UsersModel { get; set; }
-        public List<Customer> Customers { get; set; }
+        public IEnumerable<UserModel> UserModel { get; set; } 
+        public UsersModel UsersModel { get; set]
     }
 }
