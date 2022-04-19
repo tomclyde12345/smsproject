@@ -1,4 +1,4 @@
-﻿@model smsproject.ViewModel.UsersVM
+﻿@model IEnumerable<smsproject.Models.Users>
 @{
 	ViewBag.Title = "Index";
 	Layout = "~/Views/Shared/_Layout.cshtml";
@@ -23,6 +23,7 @@
 			<th>
 				Age
 			</th>
+			<th>Office Name</th>
 			<th>
 				EmailAddress
 			</th>
@@ -31,7 +32,7 @@
 			</th>
 			</thead>
 			<tbody>
-			@foreach (var user in Model.UserList)
+			@foreach (var user in Model)
 			{
 				<tr>
 					<td>@user.Id</td>
@@ -39,6 +40,7 @@
 					<td>@user.Address</td>
 					<td>@user.DateAdded</td>
 					<td>@user.age</td>
+					<td>@user.Offices.Name</td>
 					<td>@user.EmailAddress</td>
 					<td>@Html.ActionLink("Edit","Edit", new {id=user.Id})</td>
 					<td>@Html.ActionLink("Delete","Delete", new {id=user.Id})</td>

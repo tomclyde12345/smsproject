@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -26,20 +27,16 @@ namespace smsproject.Controllers
         // GET: Users
         public ActionResult Index()
         {
-            var users = _context.Users.ToList();
-            var vm = new UsersVM
-            {
-                UserList = users
-            };
-            return View(vm);
+            var users = _context.Users.Include(u => u.Offices).ToList(); 
+            return View(users);
         }
 
         public ActionResult New()
         {
-            var users = _context.Users.ToList();
+            var offices = _context.Offices.ToList();
             var vm = new UsersVM()
             {
-                UserList = users
+                OfficesList = offices
             };
             return View("Create", vm);
         }
@@ -67,7 +64,7 @@ namespace smsproject.Controllers
 
                 usersInDb.Name = users.Name;
                 usersInDb.Address = users.Address;
-                usersInDb.DateAdded = users.DateAdded;
+                usersInDb.DateAdded = DateTime.Now;
                 usersInDb.EmailAddress = users.EmailAddress;
                 usersInDb.age = users.age;
             }

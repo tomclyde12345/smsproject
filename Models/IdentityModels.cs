@@ -22,7 +22,7 @@ namespace smsproject.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Users> Users { get; set; }
-      
+        public DbSet<Offices> Offices { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
