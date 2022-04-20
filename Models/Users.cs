@@ -12,6 +12,9 @@ namespace smsproject.Models
         public string Address { get; set; }
         public DateTime? DateAdded { get; set; }
         public int age { get; set; }
-        public string EmailAddress { get; set; }  
+        public string EmailAddress { get; set; }
+
+        public Offices Offices { get; set; }
+        public int OfficesId { get; set; }
     }
 }

@@ -5,7 +5,7 @@ namespace smsproject.ViewModel
 {
     public class UsersVM
     {
-        public IEnumerable<Users> UserList { get; set; }
+        public IEnumerable<Offices> OfficesList { get; set; }
         public Users Users { get; set; }
     }
 }

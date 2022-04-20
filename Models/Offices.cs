@@ -5,9 +5,9 @@ using System.Web;
 
 namespace smsproject.Models
 {
-    public class Customer
+    public class Offices
     {
-        public int Id { get; set; }  
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 }
