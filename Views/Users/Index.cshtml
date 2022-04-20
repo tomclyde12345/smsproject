@@ -8,52 +8,52 @@
 
 <div class="container">
 	<div class="row">
-        <table class="table table-striped">
-            <thead>
-            <th>
-                Id
-            </th>
-            <th>Name</th>
-            <th>
-                Address
-            </th>
-            <th>
-                DateAdded
-            </th>
-            <th>
-                Age
-            </th>
-            </th>
-            <th>
-               Department
-            </th>
-            <th>
-                OfficeID
-            </th>
-            <th>
-                EmailAddress
-            </th>
-            <th>
-                Action
-            </th>
-            </thead>
-            <tbody>
-                @foreach (var user in Model)
-                {
-                    <tr>
-                        <td>@user.Id</td>
-                        <td>@user.Name</td>
-                        <td>@user.Address</td>
-                        <td>@user.DateAdded</td>
-                        <td>@user.age</td>
-                        <td>@user.Offices.Name</td>
-                        <td>@user.Offices.Id</td>
-                        <td>@user.EmailAddress</td>
-                        <td>@Html.ActionLink("Edit", "Edit", new { id = user.Id })</td>
-                        <td>@Html.ActionLink("Delete", "Delete", new { id = user.Id })</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+		<table class="table table-striped">
+			<thead>
+			<th>
+				Id
+			</th>
+			<th>Name</th>
+			<th>
+				Address
+			</th>
+			<th>
+				DateAdded
+			</th>
+			<th>
+				Age
+			</th>
+			</th>
+			<th>
+			   Department
+			</th>
+			<th>
+				OfficeID
+			</th>
+			<th>
+				EmailAddress
+			</th>
+			<th>
+				Action
+			</th>
+			</thead>
+			<tbody>
+				@foreach (var user in Model)
+				{
+					<tr>
+						<td>@user.Id</td>
+						<td>@user.Name</td>
+						<td>@user.Address</td>
+						<td>@user.DateAdded</td>
+						<td>@user.age</td>
+						<td>@user.Offices.Name</td>
+						<td>@user.Offices.Id</td>
+						<td>@user.EmailAddress</td>
+						<td>@Html.ActionLink("Edit", "Edit", new { id = user.Id })</td>
+						<td>@Html.ActionLink("Delete", "Delete", new { id = user.Id })</td>
+					</tr>
+				}
+			</tbody>
+		</table>
 	</div>
 </div>

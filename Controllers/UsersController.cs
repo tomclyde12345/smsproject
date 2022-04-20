@@ -45,7 +45,13 @@ namespace smsproject.Controllers
             var user = _context.Users.SingleOrDefault(c => c.Id == id); //EDIT METHOD
             if (user == null)
                 return HttpNotFound();
-            return View("Edit", user);
+            var viewModel = new UsersVM()
+            {
+                Users = user,
+                OfficesList = _context.Offices.ToList()
+            };
+
+            return View("Edit", viewModel);
         }
 
         public ActionResult Save(Users users)       //SAVE METHOD 
@@ -64,6 +70,7 @@ namespace smsproject.Controllers
                 usersInDb.Address = users.Address;
                 usersInDb.DateAdded = DateTime.Now;
                 usersInDb.EmailAddress = users.EmailAddress;
+                usersInDb.OfficesId = users.OfficesId;
                 usersInDb.age = users.age;
             }
             _context.SaveChanges();                       
