@@ -29,10 +29,9 @@
 			</div>
 			<div class="form-group">
 				@Html.LabelFor(u=> u.Users.OfficesId)
-				@Html.DropDownListFor(d => d.Users.OfficesId, new SelectList(Model.OfficesList, "Id", "Name"), "Select Department", new { @class = "form-control", @style = "font-size: 14px; padding: 10px 0;" })
+				@Html.DropDownListFor(d => d.Users.OfficesId, new SelectList(Model.OfficesList, "Id", "Name"), new { @class = "form-control" })
 
-			</div>
-			@Html.HiddenFor(u => u.Users.Id)
+			</div>@Html.HiddenFor(u => u.Users.Id)
 
 			<div class="form-group">
 				<button class="btn btn-success">Save</button>

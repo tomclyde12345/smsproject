@@ -57,7 +57,7 @@ namespace smsproject.Controllers
         public ActionResult Save(Users users)       //SAVE METHOD 
 
         {
-            if (users.Id == 0)                          
+            if (users.Id == 0)                        //Mag if pag wala pang laman ung input  
             {
                 users.DateAdded = DateTime.Now;
                 _context.Users.Add(users);
@@ -65,7 +65,7 @@ namespace smsproject.Controllers
             else
             {
                 var usersInDb = _context.Users.Single(c => c.Id == users.Id);   //SAVE METHOD AFTER EDITING
-
+                                                                                        // mag gamit ng else pag may laman na
                 usersInDb.Name = users.Name;
                 usersInDb.Address = users.Address;
                 usersInDb.DateAdded = DateTime.Now;

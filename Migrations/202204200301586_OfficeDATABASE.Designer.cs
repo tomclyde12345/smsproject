@@ -7,13 +7,13 @@ namespace smsproject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class AddMigration : IMigrationMetadata
+    public sealed partial class OfficeDATABASE : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(OfficeDATABASE));
         
         string IMigrationMetadata.Id
         {
-            get { return "202204190713382_AddMigration"; }
+            get { return "202204200301586_OfficeDATABASE"; }
         }
         
         string IMigrationMetadata.Source
