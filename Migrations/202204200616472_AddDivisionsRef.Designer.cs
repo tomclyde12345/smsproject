@@ -7,13 +7,13 @@ namespace smsproject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class AddRef : IMigrationMetadata
+    public sealed partial class AddDivisionsRef : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddRef));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddDivisionsRef));
         
         string IMigrationMetadata.Id
         {
-            get { return "202204190238530_AddRef"; }
+            get { return "202204200616472_AddDivisionsRef"; }
         }
         
         string IMigrationMetadata.Source

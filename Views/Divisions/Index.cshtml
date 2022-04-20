@@ -1,0 +1,26 @@
+﻿@model IEnumerable<smsproject.Models.Divisions>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-striped">
+    <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Office Id</th>
+    <th>Office Name</th>
+    </thead>
+    <tbody>
+    @foreach (var divs in Model)
+    {
+        <tr>
+            <td>@divs.Id</td>
+            <td>@divs.Name</td>
+            <td>@divs.OfficesId</td>
+            <td>@divs.Offices.Name</td>
+        </tr>
+    }
+    </tbody>
+</table>
+

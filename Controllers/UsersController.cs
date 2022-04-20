@@ -27,15 +27,20 @@ namespace smsproject.Controllers
         // GET: Users
         public ActionResult Index()
         {
-            var users = _context.Users.Include(u => u.Offices).ToList(); 
+            var users = _context.Users
+                .Include(u => u.Offices)
+                .Include(u=>u.Divisions)
+                .ToList(); 
             return View(users);
         }
 
         public ActionResult New()
         {
             var offices = _context.Offices.ToList();
+            var divs = _context.Divisions.ToList();
             var vm = new UsersVM()
             {
+                DivisionsList = divs,
                 OfficesList = offices
             };
             return View("Create", vm);

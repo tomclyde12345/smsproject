@@ -27,11 +27,18 @@
 				@Html.LabelFor(u=> u.Users.EmailAddress)
 				@Html.TextBoxFor(u=>u.Users.EmailAddress, new { @class = "form-control"})
 			</div>
-			<div class="form-group">
-				@Html.LabelFor(u=> u.Users.OfficesId)
-				@Html.DropDownListFor(d => d.Users.OfficesId, new SelectList(Model.OfficesList, "Id", "Name"), "Select Department", new { @class = "form-control", @style = "font-size: 14px; padding: 10px 0;" })
+		    <div class="form-group">
+                @Html.LabelFor(u=> u.Users.OfficesId)
+                @Html.DropDownListFor(d => d.Users.OfficesId, new SelectList(Model.OfficesList, "Id", "Name"), "Select Department", new { @class = "form-control", @style = "font-size: 14px; padding: 10px 0;" })
 
-			</div>
+            </div>
+
+            
+		    <div class="form-group">
+                @Html.LabelFor(u=> u.Users.DivisionsId)
+                @Html.DropDownListFor(d => d.Users.DivisionsId, new SelectList(Model.DivisionsList, "Id", "Name"), "Select Divisions", new { @class = "form-control", @style = "font-size: 14px; padding: 10px 0;" })
+
+            </div>
 
 			@Html.HiddenFor(u => u.Users.Id)
 

@@ -17,5 +17,9 @@ namespace smsproject.Models
         public Offices Offices { get; set; }
         public int OfficesId { get; set; } 
 
+
+        public Divisions Divisions { get; set; }
+
+        public int DivisionsId { get; set; }
     }
 }

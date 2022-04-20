@@ -23,6 +23,8 @@ namespace smsproject.Models
     {
         public DbSet<Users> Users { get; set; }
         public DbSet<Offices> Offices { get; set; }
+
+        public DbSet<Divisions> Divisions { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

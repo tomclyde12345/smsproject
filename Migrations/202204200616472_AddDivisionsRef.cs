@@ -3,10 +3,22 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddRef : DbMigration
+    public partial class AddDivisionsRef : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Divisions",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                        OfficesId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Offices", t => t.OfficesId, cascadeDelete: false)
+                .Index(t => t.OfficesId);
+            
             CreateTable(
                 "dbo.Offices",
                 c => new
@@ -50,10 +62,13 @@
                         age = c.Int(nullable: false),
                         EmailAddress = c.String(),
                         OfficesId = c.Int(nullable: false),
+                        DivisionsId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Offices", t => t.OfficesId, cascadeDelete: true)
-                .Index(t => t.OfficesId);
+                .ForeignKey("dbo.Divisions", t => t.DivisionsId, cascadeDelete: false)
+                .ForeignKey("dbo.Offices", t => t.OfficesId, cascadeDelete: false)
+                .Index(t => t.OfficesId)
+                .Index(t => t.DivisionsId);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -108,14 +123,18 @@
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Users", "OfficesId", "dbo.Offices");
+            DropForeignKey("dbo.Users", "DivisionsId", "dbo.Divisions");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Divisions", "OfficesId", "dbo.Offices");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
+            DropIndex("dbo.Users", new[] { "DivisionsId" });
             DropIndex("dbo.Users", new[] { "OfficesId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Divisions", new[] { "OfficesId" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
@@ -123,6 +142,7 @@
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.Offices");
+            DropTable("dbo.Divisions");
         }
     }
 }

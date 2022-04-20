@@ -1,0 +1,22 @@
+﻿@model smsproject.ViewModel.DivisionsVM
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Save", "Divisions"))
+{
+    <div class="form-group">
+        @Html.LabelFor(d => d.Divisions.Name)
+        @Html.TextBoxFor(d => d.Divisions.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(d => d.Divisions.OfficesId, new { @style = "position: relative; width: 100%; text-align: left; padding-bottom: 2%; " })
+        @Html.DropDownListFor(d => d.Divisions.OfficesId, new SelectList(Model.OfficesList, "Id", "Name"), "Select Department", new { @class = "form-control", @style = "font-size: 14px; padding: 10px 0;" })
+    </div>
+
+    @Html.HiddenFor(d => d.Divisions.Id)
+    <button type="submit">Save</button>
+}
+
