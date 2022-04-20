@@ -169,6 +169,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DivisionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OfficesController.cs" />
@@ -176,18 +177,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202204200301586_OfficeDATABASE.cs" />
-    <Compile Include="Migrations\202204200301586_OfficeDATABASE.designer.cs">
-      <DependentUpon>202204200301586_OfficeDATABASE.cs</DependentUpon>
+    <Compile Include="Migrations\202204200430249_AddINitialMogration.cs" />
+    <Compile Include="Migrations\202204200430249_AddINitialMogration.designer.cs">
+      <DependentUpon>202204200430249_AddINitialMogration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Division.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Offices.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\DivisionVM.cs" />
     <Compile Include="ViewModel\OfficeVM.cs" />
     <Compile Include="ViewModel\UsersVM.cs" />
   </ItemGroup>
@@ -252,6 +255,8 @@
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Offices\Index.cshtml" />
     <Content Include="Views\Offices\New.cshtml" />
+    <Content Include="Views\Divisions\Index.cshtml" />
+    <Content Include="Views\Divisions\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -270,8 +275,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202204200301586_OfficeDATABASE.resx">
-      <DependentUpon>202204200301586_OfficeDATABASE.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202204200430249_AddINitialMogration.resx">
+      <DependentUpon>202204200430249_AddINitialMogration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

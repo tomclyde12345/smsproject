@@ -65,7 +65,7 @@ namespace smsproject.Controllers
             else
             {
                 var usersInDb = _context.Users.Single(c => c.Id == users.Id);   //SAVE METHOD AFTER EDITING
-                                                                                        // mag gamit ng else pag may laman na
+                                                                                        // mag 
                 usersInDb.Name = users.Name;
                 usersInDb.Address = users.Address;
                 usersInDb.DateAdded = DateTime.Now;

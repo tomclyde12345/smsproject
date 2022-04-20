@@ -1,0 +1,20 @@
+﻿@model smsproject.ViewModel.DivisionVM
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        @using (Html.BeginForm("Save", "Divisions"))
+        {
+            <div class="form-group">
+                @Html.LabelFor(d => d.Divisions.Name)
+                @Html.TextBoxFor(d => d.Divisions.Name)
+            </div>
+
+            @Html.HiddenFor(d => d.Divisions.Id)
+            <button type="submit" class="btn btn-warning">Save</button>
+        }
+    </div>
+</div>

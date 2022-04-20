@@ -3,10 +3,19 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class OfficeDATABASE : DbMigration
+    public partial class AddINitialMogration : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Divisions",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
             CreateTable(
                 "dbo.Offices",
                 c => new
@@ -50,10 +59,13 @@
                         age = c.Int(nullable: false),
                         EmailAddress = c.String(),
                         OfficesId = c.Int(nullable: false),
+                        DivisionId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Divisions", t => t.DivisionId, cascadeDelete: true)
                 .ForeignKey("dbo.Offices", t => t.OfficesId, cascadeDelete: true)
-                .Index(t => t.OfficesId);
+                .Index(t => t.OfficesId)
+                .Index(t => t.DivisionId);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -108,10 +120,12 @@
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Users", "OfficesId", "dbo.Offices");
+            DropForeignKey("dbo.Users", "DivisionId", "dbo.Divisions");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
+            DropIndex("dbo.Users", new[] { "DivisionId" });
             DropIndex("dbo.Users", new[] { "OfficesId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
@@ -123,6 +137,7 @@
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.Offices");
+            DropTable("dbo.Divisions");
         }
     }
 }
