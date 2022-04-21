@@ -64,7 +64,7 @@ namespace smsproject.Controllers
         [HttpPost]
         public ActionResult Save(Users users)
 
-        {
+        { 
             if (users.Id == 0)
             {
                 users.DateAdded = DateTime.Now;
